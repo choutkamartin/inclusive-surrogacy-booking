@@ -113,9 +113,9 @@ $languages = [
     'tr' => 'turkish',
 ];
 
-$language_code = isset($_SERVER['HTTP_ACCEPT_LANGUAGE']) ? substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2) : 'en';
+$language_code = isset($_COOKIE['pll_language']) ? $_COOKIE['pll_language'] : 'en';
 
-$config['language'] = isset($_SERVER['HTTP_ACCEPT_LANGUAGE'], $languages[$language_code])
+$config['language'] = isset($_COOKIE['pll_language'], $languages[$language_code])
     ? $languages[$language_code]
     : Config::LANGUAGE;
 
